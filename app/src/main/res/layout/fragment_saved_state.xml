@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="ui"
+            type="nvg.example.guildsavedstatehandler.state.DetailUiState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvInputTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="Status: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvInputValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{ui.result}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvInputTitle"
+            app:layout_constraintStart_toEndOf="@+id/tvInputTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvInputTitle"
+            tools:text="value" />
+
+        <ProgressBar
+            android:id="@+id/circleProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="@{ui.loading ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvInputTitle"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnOpenTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Temp Screen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circleProgress" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

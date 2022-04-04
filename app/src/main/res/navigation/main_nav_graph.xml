@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/frag_main">
+
+    <fragment
+        android:id="@+id/frag_main"
+        android:name="nvg.example.guildsavedstatehandler.MainFragment"
+        android:label="Main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/open_normal_way"
+            app:destination="@id/frag_normal_way" />
+        <action
+            android:id="@+id/open_saved_state_way"
+            app:destination="@id/frag_saved_state" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/frag_normal_way"
+        android:name="nvg.example.guildsavedstatehandler.normalway.NormalFragment"
+        android:label="Normal Way"
+        tools:layout="@layout/fragment_normal_way">
+        <action
+            android:id="@+id/action_normal_to_temp"
+            app:destination="@id/frag_temp_screen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/frag_saved_state"
+        android:name="nvg.example.guildsavedstatehandler.savedstateway.SavedStateFragment"
+        android:label="Saved State Way"
+        tools:layout="@layout/fragment_saved_state">
+        <action
+            android:id="@+id/action_saved_state_to_temp"
+            app:destination="@id/frag_temp_screen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/frag_temp_screen"
+        android:name="nvg.example.guildsavedstatehandler.tempscreen.TempScreenFragment"
+        android:label="Temp Screen"
+        tools:layout="@layout/fragment_temp_screen">
+    </fragment>
+
+</navigation>
